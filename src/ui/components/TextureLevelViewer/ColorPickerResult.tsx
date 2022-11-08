@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import JsonValue, { JsonValueArrayValueArray } from '../JsonValue/JsonValue';
 
 import './ColorPickerResult.css';
 
@@ -22,12 +23,14 @@ const ColorPickerResult: React.FC<Props> = ({ position, values, style = {} }: Pr
                     ></td>
                     <td>Coord:</td>
                     <td>
-                        [{position.x}, {position.y}]
+                        <JsonValueArrayValueArray data={[position.x, position.y]} />
                     </td>
                 </tr>
                 <tr>
                     <td>Values:</td>
-                    <td>[{values.join(', ')}]</td>
+                    <td>
+                        <JsonValueArrayValueArray data={values} />
+                    </td>
                 </tr>
             </table>
         </div>
